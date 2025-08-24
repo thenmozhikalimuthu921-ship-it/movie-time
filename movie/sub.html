@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .newsletter {
+  background: #1C1C1C;
+  color: #B3B3B3;
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.newsletter h3 {
+  color: #E50914; /* Netflix Red */
+  margin-bottom: 10px;
+}
+
+.subscribe-form {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subscribe-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn {
+  background: #E50914;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #B20710;
+}
+
+/* Success Message (Hidden by Default) */
+.success-msg {
+  margin-top: 15px;
+  color: #00FF88;
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* When checkbox is checked → show message */
+#subscribe-toggle:checked ~ .success-msg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+</style>
+<body>
+    <div class="newsletter">
+  <h3>Subscribe for Movie Updates 🎬</h3>
+  <p>Get the latest news, reviews & trailers straight to your inbox.</p>
+
+  <!-- Fake Form using Checkbox Hack -->
+  <input type="checkbox" id="subscribe-toggle" hidden>
+  
+  <div class="subscribe-form">
+    <input type="email" placeholder="Enter your email" required>
+    <label for="subscribe-toggle" class="btn">Subscribe</label>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-msg">
+    ✅ Thank you for subscribing!
+  </div>
+</div>
+</body>
+</html>

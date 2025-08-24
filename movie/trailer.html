@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Seat Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 40px;
+    }
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: inline-block;
+    }
+    input, button, select {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+      font-size: 16px;
+    }
+    .success { color: green; font-weight: bold; }
+    .error { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>🎟 Movie Seat Booking</h2>
+    <input type="number" id="seat" placeholder="Enter Seat Number">
+    <button onclick="checkSeat()">Check</button>
+    <p id="msg"></p>
+
+    <div id="paymentBox" style="display:none;">
+      <h3>Select Payment Method</h3>
+      <select id="payment">
+        <option value="">--Choose--</option>
+        <option value="https://pay.google.com/">Google Pay</option>
+        <option value="https://www.phonepe.com/">PhonePe</option>
+        <option value="https://www.visa.com/">Card Payment</option>
+      </select>
+      <button onclick="goPayment()">Pay Now</button>
+    </div>
+  </div>
+
+  <script>
+    function checkSeat() {
+      let seat = document.getElementById("seat").value;
+      let msg = document.getElementById("msg");
+      let paymentBox = document.getElementById("paymentBox");
+
+      if(seat === "") {
+        msg.innerHTML = "<span class='error'>Please enter seat number</span>";
+        paymentBox.style.display = "none";
+        return;
+      }
+
+      if(seat < 50) {
+        msg.innerHTML = "<span class='success'>✅ Seat Confirmed!</span>";
+        paymentBox.style.display = "block";
+      } else {
+        msg.innerHTML = "<span class='error'>❌ Seat Full!</span>";
+        paymentBox.style.display = "none";
+      }
+    }
+
+    function goPayment() {
+      let payLink = document.getElementById("payment").value;
+      if(payLink === "") {
+        alert("Please select a payment method!");
+      } else {
+        window.open(payLink, "_blank"); // payment link open 
+      }
+    }
+  </script>
+
+</body>
+</html>

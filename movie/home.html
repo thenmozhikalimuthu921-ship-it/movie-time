@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> 🍿Popcorn Movie Time </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: all 0.3s ease-in-out;
+    }
+
+    body {
+      font-family: 'Trebuchet MS', Arial, sans-serif;
+      letter-spacing: 0.5px;
+      line-height: 1.6;
+      color: #fff;
+
+
+      background: linear-gradient(270deg, #0d0d0d, #1a1a1a, #0d0d0d);
+      background-size: 600% 600%;
+      animation: backgroundMove 15s ease infinite;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: 'Georgia', serif;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgb(221, 102, 16), 0 0 20px rgb(221, 102, 16);
+    }
+
+
+    header {
+      background: rgba(28, 28, 28, 0.9);
+      padding: 20px;
+      text-align: center;
+      animation: slideDown 1s ease-in-out;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      margin: 0;
+      color: rgb(221, 102, 16);
+    }
+
+    nav {
+      margin-top: 10px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      display: block;
+      width: 0%;
+      height: 2px;
+      background: rgb(221, 102, 16);
+      transition: width 0.3s;
+      margin: auto;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+
+    .hero {
+      background: url('https://wallpapers.com/images/hd/cinema-movie-poster-collage-7s8yyp8fovr3qfua.jpg') no-repeat center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-shadow: 2px 2px 8px #000;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 10px 20px;
+      border-radius: 8px;
+      animation: zoomIn 1.5s ease-in-out;
+    }
+
+    /* Movie Container */
+    .container {
+      width: 90%;
+      margin: 30px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .movie-card {
+      background: #1c1c1c;
+      border-radius: 12px;
+      overflow: hidden;
+      gap: 20%;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .movie-card img:hover {
+      filter: brightness(1.2) contrast(1.1);
+      transform: scale(1.05) rotate(1deg);
+    }
+
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgb(221, 102, 16);
+    }
+
+    .movie-info {
+      padding: 15px;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+
+    .movie-info h3 {
+      margin: 0;
+      color: rgb(221, 102, 16);
+    }
+
+    .movie-info p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #ddd;
+    }
+
+    /* Buttons (optional for later use) */
+    .btn {
+      background: rgb(221, 102, 16);
+      color: #000;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 30px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .btn:hover {
+      background: rgb(221, 102, 16);
+      transform: translateY(-3px);
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(28, 28, 28, 0.9);
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    footer p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #888;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideDown {
+      from {
+        transform: translateY(-100%);
+      }
+
+      to {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes backgroundMove {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    
+    }
+
+    .social-icons a {
+      color: #B3B3B3;
+      /* Light Grey */
+      font-size: 30px;
+      /* Icon size */
+      margin: 0 10px;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: rgb(221, 102, 16);
+      /* Netflix Red on Hover */
+      transform: scale(1.2);
+      /* Zoom effect */
+    }
+    
+    .login:link,login:visited{
+      background-color: chocolate;
+      
+      text-decoration: none;
+      
+    }
+    .login:hover,login:active{
+      background-color:black;
+      
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>🎬 Movie Time</h1>
+    <a class="login" href="email.html" style="width: 100px; height: 100px;  margin-left: 90%;"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-square" viewBox="0 0 16 16">
+  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+</svg></a>
+    <nav>
+      <a href="home.html">🏠︎  Home</a>
+      <a href="movies.html">🎬 Movies</a>
+      <a href="upcoming.html">➡️ Upcoming</a>
+      <a href="contact.html"> 📞 Contact</a>
+     
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Explore & Enjoy Your Favorite Movies</h2>
+  </section>
+
+  <section class="container">
+    <div class="movie-card">
+      <img src="movie.webp" alt="Inception">
+      <div class="movie-info">
+        <h3>Inception</h3>
+        <p>A skilled thief leads a mission to plant an idea into a target's subconscious.</p>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SL1024_.jpg" alt="Interstellar">
+      <div class="movie-info">
+        <h3>Interstellar</h3>
+        <p>A team of explorers travel through a wormhole in space to save humanity.</p>
+      </div>
+    </div>
+
+    <div class="movie-card">
+      <img src="movie1.png" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Avengers: Endgame</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="download (3).jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Frozen</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="download (4).jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Ewtia</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="download (5).jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>when life gives you tangerines</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="cleeam.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Cleeam</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="avatar.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Avatar 3</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="kdarama.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Mafia</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="kdarama1.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>The Uncanny</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="kdarma.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>True Beauty</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="kdrama2.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>Live uo to Your Name Heo</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="11.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>ELEVEN</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="court.avif" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>court</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+    <div class="movie-card">
+      <img src="nana.jpg" alt="Avengers Endgame">
+      <div class="movie-info">
+        <h3>HI Nana</h3>
+        <p>Earth's mightiest heroes unite to defeat Thanos and restore balance to the universe.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <center>
+
+      <h2>Contact us </h2>
+      <h3>📍10/ west street,Madurai</h3>
+      <h3>📞 6578764510 </h3>
+      <h3>📧 movietimeonline@gmail.com</h3>
+
+      <h3>About</h3>
+      <p>MovieVerse is a lightweight hub for film lovers. Discover trailers, cast & crew, summaries, and unbiased
+        ratings across new releases and timeless classics. We keep things fast, clean, and ad-light so you can find what
+        to watch without the clutter. Data may include third-party sources and official studio materials.</p>
+
+      <div class="social-icons">
+        <a href="#https://www.facebook.com/watch/explore/Movies/"><i class="fab fa-facebook"></i></a>
+        <a href="#https://www.instagram.com/itsamoviepage/?hl=en"><i class="fab fa-instagram"></i></a>
+        <a href="#http://x.com/movieweb"><i class="fab fa-twitter"></i></a>
+        <a href="#https://in.pinterest.com/pin/7740630605653434/"><i class="fab fa-pinterest"></i></a>
+        <p>© 2025 Movie Time | Designed with ❤️ K Thenmozhi Kalimuthu </p>
+      </div>
+    </center>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+</body>
+
+</html>

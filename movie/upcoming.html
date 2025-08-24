@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Movies</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      margin: 0;
+      padding: 40px 5%;
+    }
+
+    h1 {
+      text-align: center;
+      color: rgb(221, 102, 16);
+      text-shadow: 0 0 10px rgb(221, 102, 16);
+      margin-bottom: 40px;
+    }
+
+    .upcoming-container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .movie-card {
+      background: #1a1a1a;
+      border-radius: 15px;
+      width: 250px;
+      height: 490px;
+      overflow: hidden;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .movie-card h3 {
+      margin: 10px;
+      color: rgb(221, 102, 16);
+    }
+
+    .movie-card p {
+      margin: 0 10px 15px;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .movie-card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 25px rgb(221, 102, 16);
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .newsletter {
+  background: #1C1C1C;
+  color: #B3B3B3;
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 10px;
+  max-width: 500px;
+  margin: 30px auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+.newsletter h3 {
+  color:rgb(221, 102, 16); /* Netflix Red */
+  margin-bottom: 10px;
+}
+
+.subscribe-form {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subscribe-form input {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  flex: 1;
+  min-width: 200px;
+}
+
+.btn {
+  background: rgb(221, 102, 16);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #B20710;
+}
+
+/* Success Message (Hidden by Default) */
+.success-msg {
+  margin-top: 15px;
+  color: rgb(221, 102, 16);
+  font-weight: bold;
+  font-size: 16px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+
+/* When checkbox is checked → show message */
+#subscribe-toggle:checked ~ .success-msg {
+  opacity: 1;
+  transform: scale(1.1);
+}
+ .social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  color: #B3B3B3;   /* Light Grey */
+  font-size: 30px;  /* Icon size */
+  margin: 0 10px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons a:hover {
+  color: rgb(221, 102, 16);   /* Netflix Red on Hover */
+  transform: scale(1.2); /* Zoom effect */
+}
+.rating:link,
+    rating:visited {
+      color: white;
+      background-color: chocolate;
+      
+      border-radius: 15px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .rating:hover,rating:active {
+      background-color: orangered;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍿 Upcoming Movies</h1>
+
+  <div class="upcoming-container">
+    <div class="movie-card">
+      <img src="avatar.jpg" alt="Avatar 2">
+      <h3>Avatar 2</h3>
+      <p>Release Date: Dec-09-2025</p>
+      <a class="rating" href="trailer.html">Trailer</a>
+        <a class="rating" href="book.html">Book Now</a>
+    </div>
+
+    <div class="movie-card">
+      <img src="https://m.media-amazon.com/images/I/91zbi9M+mKL._AC_SL1500_.jpg" alt="Spider-Man Beyond">
+      <h3>Spider-Man: Beyond</h3>
+      <p>Release Date: June-01-2026</p>
+      <a class="rating" href="trailer.html">Trailer</a>
+        <a class="rating" href="book.html">Book Now</a>
+    </div>
+
+    <div class="movie-card">
+      <img src="download (3).jpg" alt="Frozen 3">
+      <h3>Frozen 3</h3>
+      <p>Release Date: Nov-18-2025</p>
+      <a class="rating" href="trailer.html">Trailer</a>
+        <a class="rating" href="book.html">Book Now</a>
+    </div>
+     <div class="movie-card">
+      <img src="download (4).jpg" alt="evita 3">
+      <h3>Ewitia</h3>
+      <p>Release Date: Nov-04-2025</p>
+      <a class="rating" href="trailer.html">Trailer</a>
+        <a class="rating" href="book.html">Book Now</a>
+    </div>
+     <div class="movie-card">
+      <img src="download (5).jpg" alt="wgit">
+      <h3>when gives you tangerines</h3>
+      <p>Release Date: dec-02-2025</p>
+        <a class="rating" href="trailer.html">Trailer</a>
+        <a class="rating" href="#" onclick="alert(' sorry seat full')">Book Now</a>
+    </div>
+  </div>
+  <footer>
+    <div class="newsletter">
+  <h3>Subscribe for Movie Updates 🎬</h3>
+  <p>Get the latest news, reviews & trailers straight to your inbox.</p>
+
+  <!-- Fake Form using Checkbox Hack -->
+  <input type="checkbox" id="subscribe-toggle" hidden>
+  
+  <div class="subscribe-form">
+    <input type="email" placeholder="Enter your email" required>
+    <label for="subscribe-toggle" class="btn">Subscribe</label>
+  </div>
+
+  <!-- Success Message -->
+  <div class="success-msg">
+    ✅ Thank you for subscribing!
+  </div>
+</div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Movie Show Booking🍿</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #1a1a1a;
+      color: chocolate;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .booking-box {
+      background: #2b2b2b;
+      padding: 60px;
+      border-radius: 15px;
+      width: 300px;
+      height: auto;
+
+    }
+
+    .booking-box h2 {
+      text-align: center;
+      color: rgb(241, 108, 13);
+      margin-bottom: 25px;
+    }
+
+    .booking-box label {
+      display: block;
+      margin-top: 10px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .booking-box input,
+    .booking-box select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    .booking-box input[type="submit"] {
+      background: chocolate;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+
+    }
+
+    .booking-box input[type="submit"]:hover {
+      background: rgb(243, 135, 58);
+      color: white;
+    }
+
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      display: inline-block;
+    }
+
+    .btn {
+      color: white;
+      margin-top: auto;
+      margin-right: 50px;
+    }
+
+    .btn:link,
+    btn:visited {
+      background-color: chocolate;
+      color: wheat;
+      border-radius: 15px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn:hover,
+    btn:active {
+      background-color: orangered;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="booking-box">
+    <h2>Book Your Show</h2>
+    <form>
+      <label for="movie">Select Movie</label>
+      <select id="movie" required>
+        <option value="">--Choose Movie--</option>
+        <option>Ewitia</option>
+        <option>Frozen</option>
+        <option>Avatar</option>
+        <option>when gives you tangerines</option>
+      </select>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="time">Show Time</label>
+      <select id="time" required>
+        <option value="">--Choose Time--</option>
+        <option>10:00 AM</option>
+        <option>02:00 PM</option>
+        <option>06:00 PM</option>
+        <option>09:30 PM</option>
+      </select>
+      <!----
+      <label for="seats">Number of Seats(single)</label>
+      <input type="number" id="seats" min="1" max="10" required>
+      <label for="seats">Number of Seats(couple)</label>
+      <input type="number" id="seats" min="20" max="30" required>-->
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" placeholder="Enter your name" required>
+
+      <label for="mobile">Mobile Number</label>
+      <input type="tel" id="mobile" type="number" placeholder="your contact" required>
+
+
+      </script>
+      <div class="field">
+        <label for="amount">Amount</label>
+        <input type="text" id="amount" value="₹1080" readonly><br> <br>
+      </div>
+        <a href="trailer.html" class="btn">Let's </a>
+  </div><br>
+
+
+
+  </form>
+  </div>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sign in • Demo</title>
+<style>
+  :root{--bg:#f4f4f4;--card:#fff;--accent:#1a73e8;--muted:#666}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);font-family:Arial,Helvetica,sans-serif;padding:20px;
+  }
+
+  .card{
+    width:100%;max-width:380px;background:var(--card);border-radius:10px;
+    box-shadow:0 6px 18px rgba(0,0,0,.08);padding:28px;
+    text-align:center;
+  }
+
+  .g{
+    width:48px;
+    height:48px;
+    margin:0 auto 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:linear-gradient(90deg,#ea4335);
+    color:#fff;
+    font-weight:700;
+    font-size:22px;
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+  }
+
+  h1{font-size:20px;margin-bottom:6px}
+  p.sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+
+  input[type="email"]{
+    width:100%;padding:12px 10px;border:1px solid #ddd;border-radius:6px;
+    font-size:15px;margin-bottom:12px;
+  }
+  .row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+  .link{color:var(--accent);text-decoration:none;font-size:14px}
+  button{
+    background:var(--accent);color:#fff;border:0;padding:10px 14px;
+    border-radius:6px;font-weight:600;cursor:pointer;
+  }
+
+  small{display:block;color:var(--muted);margin-top:14px;font-size:12px}
+  @media (max-width:420px){ .card{padding:20px} }
+</style>
+</head>
+<body>
+
+  <div class="card" role="main" aria-labelledby="t">
+    <div class="g">G</div>
+    <h1 id="t">Sign in</h1>
+    <p class="sub">to verify and continue to Movie Time App</p>
+
+    <form onsubmit="event.preventDefault(); alert('Email Verified...');">
+      <input type="email" placeholder="Email or phone" required />
+      <div class="row">
+        <a href="https://support.google.com/accounts/answer/41078?hl=en&co=GENIE.Platform%3DDesktop" class="link">Forgot email?</a>
+        <button type="submit">Next</button>
+      </div>
+    </form>
+
+    <small>Not your device? Use Guest mode · <a class="link" href="#">Learn more</a></small>
+  </div>
+
+</body>
+</html>

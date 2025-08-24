@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Options</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 30px;
+    }
+
+    h1 {
+      color: rgb(221, 102, 16);
+      text-shadow: 0 0 10px rgb(221, 102, 16);
+    }
+
+    .filter-buttons {
+      margin: 20px 0;
+    }
+
+    .filter-buttons button {
+      background: #222;
+      border: 2px solid rgb(221, 102, 16);
+      color: rgb(221, 102, 16);
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .filter-buttons button:hover {
+      background: rgb(221, 102, 16);
+      color: #000;
+      transform: scale(1.1);
+    }
+
+    .movies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .movie-card {
+      width: 250px;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #222;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+      transition: 0.3s;
+    }
+
+    .movie-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .movie-card h3 {
+      margin: 10px 0;
+      color: rgb(221, 102, 16);
+    }
+    .movie-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgb(221, 102, 16);
+    }
+
+    .movie-card p {
+      font-size: 0.9rem;
+      color: #ccc;
+      padding: 0 10px 15px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .rating:link,
+    rating:visited {
+      color: white;
+      background-color: chocolate;
+      
+      border-radius: 15px;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .rating:hover,rating:active {
+      background-color: orangered;
+      color: black;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🎬 Movie Options</h1>
+
+  <!-- Filter Buttons -->
+  <div class="filter-buttons">
+    <button onclick="filterMovies('all')">All</button>
+    <button onclick="filterMovies('action')">Action</button>
+    <button onclick="filterMovies('sci-fi')">Sci-Fi</button>
+    <button onclick="filterMovies('k-drama')">Drama</button>
+     <button onclick="filterMovies('Tamil')">Tamil Movies</button>
+  </div>
+
+  <!-- Movies Gallery -->
+  <div class="movies">
+    <!--action-->
+    <div class="movie-card action">
+      <img src="avatar.jpg" alt="Dark Knight">
+      <h3>Avatar</h3>
+      <p>Category: Action</p>
+    </div>
+
+    <div class="movie-card action">
+      <img src="kdrama2.jpg" alt="Dark Knight">
+      <h3>Avatar</h3>
+      <p>Category: Action</p>
+    </div>
+
+    <div class="movie-card k-drama">
+      <img src="kdarama.jpg" alt="Avengers">
+      <h3>True Beauty</h3>
+      <p>Category: Action</p>
+    </div>
+    <!---sci-fi-->
+    <div class="movie-card sci-fi">
+      <img src="movie.webp" alt="Inception">
+      <h3>Inception</h3>
+      <p>Category: Sci-Fi</p>
+    </div>
+    <!--drama-->
+    <div class="movie-card k-drama">
+      <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SL1024_.jpg" alt="Avengers">
+      <h3>Avengers: Endgame</h3>
+      <p>Category: Drama</p>
+    </div>
+
+    <div class="movie-card k-drama">
+      <img src="download (5).jpg" alt="Avengers">
+      <h3>When Give Life Your tangerines</h3>
+      <p>Category: Drama</p>
+    </div>
+
+    <div class="movie-card k-drama">
+      <img src="kdarma.jpg" alt="Avengers">
+      <h3>True Beauty</h3>
+      <p>Category: Drama</p>
+    </div>
+    <!---tamil movies--> 
+    <div class="movie-card Tamil">
+      <img src="11.jpg" alt="Avengers">
+      <h3>ELEVEN</h3>
+      <p>Category: Tamil Movies</p>
+    </div>
+
+     <div class="movie-card Tamil">
+      <img src="nana.jpg" alt="Avengers">
+      <h3>Hi Nana</h3>
+      <p>Category: Tamil Movies</p>
+    </div>
+
+    <div class="movie-card Tamil">
+      <img src="court.avif" alt="Avengers">
+      <h3>court</h3>
+      <p>Category: Tamil Movies</p>
+    </div>
+    
+  </div><br> <br>
+  <a class="rating" href="rating.html">Rating Now</a>
+
+  <script>
+    function filterMovies(category) {
+      let cards = document.querySelectorAll('.movie-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
